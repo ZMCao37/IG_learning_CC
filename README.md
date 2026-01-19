@@ -1,6 +1,6 @@
 # 情報幾何学習プロジェクト (Information Geometry Learning)
 
-甘利俊一「情報幾何学の基礎」を読み進めながら、各概念を可視化・実装で理解するプロジェクト。
+甘利俊一「情報幾何学の方法」を読み進めながら、各概念を可視化・実装で理解するプロジェクト。
 
 ## 学習者の背景
 
@@ -130,7 +130,7 @@ I = manifold.fisher_metric(theta)
 
 ## 参考文献
 
-- 甘利俊一「情報幾何学の基礎」（主教材）
+- 甘利俊一「情報幾何学の方法」（主教材）
 - 甘利俊一「情報幾何学の新展開」
 - Amari, S. "Information Geometry and Its Applications" (Springer, 2016)
 
