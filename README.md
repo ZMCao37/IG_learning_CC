@@ -1,6 +1,6 @@
 # 情報幾何学習プロジェクト (Information Geometry Learning)
 
-甘利俊一「情報幾何学の方法」を読み進めながら、各概念を可視化・実装で理解するプロジェクト。
+甘利俊一・長岡浩司「情報幾何学の方法」（岩波書店）を読み進めながら、各概念を可視化・実装で理解するプロジェクト。
 
 ## 学習者の背景
 
@@ -17,27 +17,30 @@ info-geometry-learning/
 ├── requirements.txt              # 依存パッケージ
 │
 ├── notebooks/                    # メインの学習ノート
-│   ├── ch00_prerequisites/       # 第0章：前置知識の復習
-│   │   ├── 00_overview.ipynb        # 全体概要
-│   │   ├── 01_linear_algebra.ipynb  # 線形代数の復習
-│   │   ├── 02_probability_statistics.ipynb  # 確率・統計の復習
-│   │   └── 03_kl_divergence_fisher.ipynb    # KLダイバージェンスとFisher情報
+│   ├── ch00_prerequisites/       # 第0章：前置知識の復習 ✅
+│   │   ├── 00_overview.ipynb              # 全体概要
+│   │   ├── 01_linear_algebra.ipynb        # 線形代数の復習
+│   │   ├── 02_probability_statistics.ipynb # 確率・統計の復習
+│   │   ├── 03_kl_divergence_fisher.ipynb  # KLダイバージェンスとFisher情報
+│   │   └── 04_kalman_bayesian.ipynb       # カルマンフィルタとベイズ推定
 │   │
-│   ├── ch01_differential_geometry/  # 第1章：微分幾何の基礎
+│   ├── ch01_differential_geometry/  # 第1章：微分幾何の基礎 ✅
 │   │   ├── 01_manifolds.ipynb          # §1.1 多様体の基礎
 │   │   ├── 02_tangent_vectors.ipynb    # §1.2 接ベクトルと接空間
+│   │   ├── 03_covectors.ipynb          # §1.3 余接ベクトルと1-形式
+│   │   ├── 04_vector_fields.ipynb      # §1.4 ベクトル場と積分曲線
 │   │   ├── 05_riemannian_metric.ipynb  # §1.5 リーマン計量
-│   │   └── 06_affine_connection.ipynb  # §1.6 アフィン接続（準備中）
+│   │   └── 06_affine_connection.ipynb  # §1.6 アファイン接続と共変微分
 │   │
 │   ├── ch02_statistical_models/     # 第2章：統計的モデルの幾何（準備中）
 │   │   ├── 01_statistical_model.ipynb   # 統計的モデル
-│   │   ├── 02_fisher_information.ipynb  # Fisher情報
-│   │   └── 03_alpha_connection.ipynb    # α接続
+│   │   ├── 02_exponential_family.ipynb  # 指数型分布族
+│   │   └── 03_fisher_metric.ipynb       # Fisher計量の導出
 │   │
 │   └── ch03_dual_connections/       # 第3章：双対接続の理論（準備中）
-│       ├── 01_duality.ipynb            # 双対性
-│       ├── 02_dual_flat_space.ipynb    # 双対平坦空間
-│       └── 03_divergence.ipynb         # ダイバージェンス
+│       ├── 01_alpha_connection.ipynb    # α-接続
+│       ├── 02_duality.ipynb             # e-接続とm-接続の双対性
+│       └── 03_divergence.ipynb          # ダイバージェンス関数
 │
 ├── src/                          # 再利用可能なコード
 │   ├── __init__.py
@@ -56,7 +59,7 @@ info-geometry-learning/
 
 ## 学習の流れ
 
-### Step 0: 前置知識の復習（ch00）
+### Step 0: 前置知識の復習（ch00）✅
 
 既知の概念と情報幾何の対応を確認：
 
@@ -65,20 +68,24 @@ info-geometry-learning/
 | `01_linear_algebra.ipynb` | 線形代数の復習 | テンソル、計量、双対空間 |
 | `02_probability_statistics.ipynb` | 確率・統計の復習 | 統計的多様体の定義 |
 | `03_kl_divergence_fisher.ipynb` | KLダイバージェンスとFisher情報 | **リーマン計量、ダイバージェンス** |
+| `04_kalman_bayesian.ipynb` | カルマンフィルタとベイズ推定 | 情報フィルタ、自然パラメータ |
 
-### Step 1: 微分幾何の基礎（ch01）
+### Step 1: 微分幾何の基礎（ch01）✅
 
 | 情報幾何の概念 | 既知の概念との対応 | ノートブック |
 |------------|----------------|-------------|
 | 多様体 | パラメータ空間（μ, σの空間） | `01_manifolds.ipynb` |
 | 接ベクトル | パラメータの微小変化の方向 | `02_tangent_vectors.ipynb` |
+| 余接ベクトル | 勾配、微分形式 | `03_covectors.ipynb` |
+| ベクトル場 | 勾配流、最適化軌跡 | `04_vector_fields.ipynb` |
 | リーマン計量 | Fisher情報行列 | `05_riemannian_metric.ipynb` |
+| アファイン接続 | α-接続、e/m-接続の双対性 | `06_affine_connection.ipynb` |
 
 ### Step 2以降: 教科書本論（準備中）
 
-- 第2章：統計的モデルの幾何学的構造
-- 第3章：双対接続とダイバージェンス
-- 第4章以降：応用
+- 第2章：統計的モデルの幾何学的構造（指数型分布族、Fisher計量）
+- 第3章：双対接続の理論（α-接続、双対平坦構造）
+- 第4章以降：応用（EMアルゴリズム、自然勾配法、深層学習）
 
 ## 環境セットアップ
 
@@ -130,9 +137,10 @@ I = manifold.fisher_metric(theta)
 
 ## 参考文献
 
-- 甘利俊一・長岡浩司「情報幾何学の方法」、岩波書店（主教材）
-- 甘利俊一「情報幾何学の新展開」
+- 甘利俊一・長岡浩司「情報幾何学の方法」岩波書店（**主教材**）
+- 甘利俊一「情報幾何学の新展開」サイエンス社
 - Amari, S. "Information Geometry and Its Applications" (Springer, 2016)
+- 藤原彰夫「情報幾何学の基礎」共立出版
 
 ## コントリビューション
 
