@@ -11,58 +11,74 @@
 ## プロジェクト構造
 
 ```
-├── chapters/                    # 章ごとの可視化コード
+├── chapters/
+│   ├── ch00_prerequisites/          # 第0章：前置知識の復習
+│   │   ├── 00_overview.ipynb           # 全体概要
+│   │   ├── 01_linear_algebra.ipynb     # 線形代数の復習
+│   │   ├── 02_probability_statistics.ipynb  # 確率・統計の復習
+│   │   └── 03_kl_divergence_fisher.ipynb    # KLダイバージェンスとFisher情報
 │   ├── ch01_differential_geometry/  # 第1章：微分幾何の基礎
-│   ├── ch02_statistical_models/     # 第2章：統計的モデルの幾何
-│   ├── ch03_dual_connections/       # 第3章：双対接続の理論
-│   └── ch04_statistical_inference/  # 第4章：統計的推論の微分幾何
+│   │   ├── sec01_manifold_basics.ipynb     # §1.1 多様体の基礎
+│   │   ├── sec02_tangent_vectors.ipynb     # §1.2 接ベクトルと接空間
+│   │   └── sec03_metric_tensor.ipynb       # §1.5 リーマン計量
+│   ├── ch02_statistical_models/     # 第2章：統計的モデルの幾何（準備中）
+│   ├── ch03_dual_connections/       # 第3章：双対接続の理論（準備中）
+│   └── ch04_statistical_inference/  # 第4章：統計的推論の微分幾何（準備中）
 ├── interactive/                 # インタラクティブHTML
 ├── notes/                       # 学習ノート（Markdown）
 └── prompts/                     # 有効だったプロンプト記録
 ```
 
-## 学習ロードマップ
+## 学習の流れ
 
-### Phase 1: 微分幾何の直感的理解（第1章）
+### Step 0: 前置知識の復習（ch00）
 
-既知の概念との対応を意識しながら進める：
+既知の概念と情報幾何の対応を確認：
 
-| 情報幾何の概念 | 既知の概念との対応 | 可視化 |
-|------------|----------------|-------|
-| 多様体 | パラメータ空間（μ, σの空間） | 2D/3D曲面 |
-| 接ベクトル | パラメータの微小変化の方向 | 曲面上の矢印 |
-| 計量テンソル | Fisher情報行列 | 距離の歪み |
-| 測地線 | 分布間の「最短経路」 | 曲面上の曲線 |
+| ノートブック | 内容 | 情報幾何との接続 |
+|------------|------|----------------|
+| `01_linear_algebra.ipynb` | 線形代数の復習 | テンソル、計量、双対空間 |
+| `02_probability_statistics.ipynb` | 確率・統計の復習 | 統計的多様体の定義 |
+| `03_kl_divergence_fisher.ipynb` | KLダイバージェンスとFisher情報 | **リーマン計量、ダイバージェンス** |
 
-### Phase 2: 統計的モデルの幾何（第2章）
+### Step 1: 微分幾何の基礎（ch01）
 
-- Fisher情報行列がRiemann計量になる理由
-- α-接続の意味（α=1: e-接続、α=-1: m-接続）
-- 指数型分布族の特別な性質
+| 情報幾何の概念 | 既知の概念との対応 | ノートブック |
+|------------|----------------|------------|
+| 多様体 | パラメータ空間（μ, σの空間） | `sec01_manifold_basics.ipynb` |
+| 接ベクトル | パラメータの微小変化の方向 | `sec02_tangent_vectors.ipynb` |
+| リーマン計量 | Fisher情報行列 | `sec03_metric_tensor.ipynb` |
 
-### Phase 3: 双対接続とダイバージェンス（第3章）
+### Step 2以降: 教科書本論（準備中）
 
-- **KLダイバージェンスの幾何学的意味**（実装経験と直結）
-- 双対平坦空間の概念
-- Bregmanダイバージェンスとの関係
-
-### Phase 4: 応用（第4章以降）
-
-- EMアルゴリズムの幾何学的解釈
-- 自然勾配法（機械学習への直接的応用）
+- 第2章：統計的モデルの幾何学的構造
+- 第3章：双対接続とダイバージェンス
+- 第4章以降：応用
 
 ## 環境セットアップ
 
 ```bash
+pip install -r requirements.txt
+# または
 pip install numpy matplotlib scipy plotly jupyter
 ```
 
-## 学習の進め方
+## 使い方
 
-1. **教科書の該当節を読む**
-2. **既知概念との対応を確認**（このREADMEの表を参照）
-3. **可視化コードを実行・改変**
-4. **理解をnotes/に記録**
+```bash
+# Jupyter Notebookを起動
+jupyter notebook
+
+# chapters/ch00_prerequisites/00_overview.ipynb から開始
+```
+
+各ノートブックは：
+- 📝 概念の説明
+- 💻 Pythonコードでの実装・可視化
+- 🔗 情報幾何との接続ポイント
+- ❓ 確認問題
+
+の形式で構成されています。
 
 ## 参考文献
 
