@@ -130,7 +130,7 @@ I = manifold.fisher_metric(theta)
 
 ## 参考文献
 
-- 甘利俊一「情報幾何学の方法」（主教材）
+- 甘利俊一・長岡浩司「情報幾何学の方法」、岩波書店（主教材）
 - 甘利俊一「情報幾何学の新展開」
 - Amari, S. "Information Geometry and Its Applications" (Springer, 2016)
 
